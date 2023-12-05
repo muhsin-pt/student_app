@@ -1,0 +1,1 @@
+ /Users/tabsyst/Documents/nawawin_student_app/.dart_tool/flutter_build/0c06e8b4b3bae7ce808b3cfe9938fb40/native_assets.yaml: 
