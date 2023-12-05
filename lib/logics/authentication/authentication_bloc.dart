@@ -17,10 +17,10 @@ class AuthenticationBloc
         emit(AuthenticationLoading());
         final url = Uri.https(baseUrl, Endpoint.loginUrl, event.params);
         final response = await http.post(url);
-        log("Bloc ---> ${response.statusCode}");
+
         if (response.statusCode == 200) {
           final jsonResponse = json.decode(response.body);
-          final token = jsonResponse['details']['token'];
+          final token = jsonResponse['details']['logfnds'];
           final memberid = jsonResponse['details']['member_ID'];
           final name = jsonResponse['details']['name'];
 

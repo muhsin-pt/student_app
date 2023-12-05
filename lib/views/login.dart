@@ -110,14 +110,15 @@ class _LoginPageState extends State<LoginPage> {
                 BlocListener<AuthenticationBloc, AuthenticationState>(
                   listener: (context, state) {
                     if (state is AuthenticationSucess) {
-                      state.loginModel.studentDetails.length == 1
-                          ? ntrkey.currentState?.pushNamedAndRemoveUntil(
-                              '/home', (route) => false)
-                          : ntrkey.currentState?.pushNamedAndRemoveUntil(
-                              '/studentlist', (route) => false,
-                              arguments: StudentArguments(
-                                  studentList:
-                                      state.loginModel.studentDetails));
+                      if (state.loginModel.studentDetails.length == 1) {
+                        ntrkey.currentState?.pushNamedAndRemoveUntil(
+                            '/home', (route) => false);
+                      } else {
+                        ntrkey.currentState?.pushNamedAndRemoveUntil(
+                            '/studentlist', (route) => false,
+                            arguments: StudentArguments(
+                                studentList: state.loginModel.studentDetails));
+                      }
                     }
                     //add login state------------------------------------------------->
                     if (state is AuthenticationError) {

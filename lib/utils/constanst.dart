@@ -92,7 +92,7 @@ SnackBar alertSnackbar(
 
 Future<bool> loginCheck() async {
   final token = await storage.read(key: 'token');
-  if (token == null) {
+  if (token == 'false') {
     return false;
   } else {
     return true;
